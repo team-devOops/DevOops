@@ -1,5 +1,6 @@
 package com.devoops.controller;
 
+import com.devoops.domain.CustUser;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,7 +9,11 @@ public class Tessst {
 
 
 	@RequestMapping(value = "/test")
-	public void test() {
+	public String test() {
+
+		return "asdasd";
+
+
 
 	}
 }
