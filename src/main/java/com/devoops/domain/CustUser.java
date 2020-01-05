@@ -2,13 +2,15 @@ package com.devoops.domain;
 
 import javax.persistence.*;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
+@Builder
 @Entity
 @Table(name = "T_CUST_USER")
-public class CustUser extends BaseVO {
+public class CustUser extends ByBaseVO {
 	
 	@Id
 	private String userId;
