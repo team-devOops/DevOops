@@ -12,6 +12,6 @@ public class Test2 {
     @RequestMapping("/test2")
     public String home(){
 
-        return  "index"; 
+        return  "index";
     }
 }
