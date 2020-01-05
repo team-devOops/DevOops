@@ -10,7 +10,7 @@ import lombok.Setter;
 @Builder
 @Entity
 @Table(name = "T_CUST_USER")
-public class CustUser extends ByBaseVO {
+public class CustUser extends BaseVO {
 	
 	@Id
 	private String userId;
