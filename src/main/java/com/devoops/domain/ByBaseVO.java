@@ -2,7 +2,7 @@ package com.devoops.domain;
 
 import java.util.Date;
 
-public class BaseVO {
+public class ByBaseVO {
 	
 	private String regUserId;
 	private Date regDt;
