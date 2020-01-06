@@ -1,3 +1,11 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*      FILE NAME : HomeController.java
+* REPORTING DATE : 2019.11.04
+*     WRITTEN BY : zinzoddari@gmail.com
+=====================================================
+* REVISION HISTORY
+* * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 package com.devoops.controller;
 
 import org.springframework.stereotype.Controller;
@@ -8,14 +16,14 @@ public class HomeController {
 	
 	@RequestMapping(value = "/")
 	public String index() {
-		System.out.println("@@@@@@@INDEX(");
 		
 		return "index";
 	}
 	
-	@RequestMapping(value = "/zz")
-	public String zz() {
-		System.out.println("@@@@@@@zz(");
-		return "index";
+	//추후수정필요
+	@RequestMapping(value = "/common/common")
+	public String common() {
+		
+		return "common/common";
 	}
 }
