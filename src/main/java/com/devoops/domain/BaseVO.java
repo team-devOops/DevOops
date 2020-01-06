@@ -2,10 +2,14 @@ package com.devoops.domain;
 
 import java.util.Date;
 
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import utils.DateUtils;
 import utils.StringUtils;
 
+
+@NoArgsConstructor
 @Getter
 public class BaseVO {
 
