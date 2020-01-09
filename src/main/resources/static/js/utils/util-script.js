@@ -25,9 +25,8 @@ function goPageMove(url) {
 /**
  * form Submit
  */
-function formSubmit(action, formObj) {
-	formObj.method = 'post';
-	formObj.method = '_self';
+function formSubmit(action, formObj, method) {
+	formObj.method = method;
 	formObj.action = action;
 	
 	formObj.submit();
