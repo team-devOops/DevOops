@@ -19,11 +19,11 @@ public class HomeController {
 		
 		return "index";
 	}
-	
+
 	//추후수정필요
 	@RequestMapping(value = "/common/common")
 	public String common() {
-		
+
 		return "common/common";
 	}
 }

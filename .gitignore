@@ -8,6 +8,7 @@ build/
 /target/
 /bin/
 /test.exe
+*.yml
 
 ### macOS ###
 # General
