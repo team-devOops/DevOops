@@ -1,3 +1,11 @@
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+*      FILE NAME : script-utils.js
+* REPORTING DATE : 2020.01.10
+*     WRITTEN BY : zinzoddari@gmail.com
+=====================================================
+* REVISION HISTORY
+ -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
+
 /**
  * 값이 NULL인지 CHECK
  */
@@ -25,9 +33,8 @@ function goPageMove(url) {
 /**
  * form Submit
  */
-function formSubmit(action, formObj) {
-	formObj.method = 'post';
-	formObj.method = '_self';
+function formSubmit(action, formObj, method) {
+	formObj.method = method;
 	formObj.action = action;
 	
 	formObj.submit();

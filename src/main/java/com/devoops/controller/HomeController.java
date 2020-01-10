@@ -26,4 +26,10 @@ public class HomeController {
 
 		return "common/common";
 	}
+	
+	@RequestMapping(value = "/test")
+	public String test() {
+		
+		return "index";
+	}
 }
