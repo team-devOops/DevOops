@@ -38,6 +38,7 @@ function formSubmit(action, formObj, method) {
 	formObj.action = action;
 	
 	formObj.submit();
+<<<<<<< HEAD
 }
 
 /**
@@ -74,4 +75,6 @@ function formToFormData(formObj) {
     }
     
     return JSON.stringify(formDataObj);
+=======
+>>>>>>> refs/remotes/origin/master
 }
