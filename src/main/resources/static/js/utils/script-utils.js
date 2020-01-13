@@ -38,6 +38,44 @@ function formSubmit(action, formObj, method) {
 	formObj.action = action;
 	
 	formObj.submit();
+
+}
+
+/**
+ * Ajax Submit
+ */
+function requstAjax(action, formObj, method, async, callback) {
+	var xhr = new XMLHttpRequest();
+
+	var formData = formToFormData(formObj);
+
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+        	callback(JSON.parse(xhr.response));
+        }
+      }
+    };
+
+    xhr.open(method, action, async);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(formData);
+}
+
+/**
+ * formObject to FormData
+ */
+function formToFormData(formObj) {
+	var formData = new FormData(formObj);
+    var formDataObj = {};
+
+    for(var key of formData.keys()) {
+    	var data = formData.get(key);
+    	formDataObj[key] = (data !== undefined ? data : '');
+    }
+
+    return JSON.stringify(formDataObj);
+
 }
 
 const getDom = (id) => document.getElementById(id);
