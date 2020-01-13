@@ -1,0 +1,27 @@
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+*      FILE NAME : /auth/signUp.html
+* REPORTING DATE : 2020.01.10
+*     WRITTEN BY : zinzoddari@gmail.com
+*    DISCRIPTION : 회원가입
+=====================================================
+* REVISION HISTORY
+ -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="import" href="/common/common">
+    <script type="text/javascript" src="/js/auth/script-signup.js"></script>
+</head>
+<body>
+	<form id="frm" name="frm">
+		ID : <input type="text" id="userId" name="userId"/>
+		PW : <input type="password" name="userPw" />
+		NAME : <input type="text" name="name" />
+		EMAIL : <input type="text" name="email" />
+		
+	</form>
+	
+	<input type="button" name="submit" onclick="signup.save(document.forms['frm']);" />
+</body>
+</html>
