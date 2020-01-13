@@ -32,4 +32,10 @@ public class HomeController {
 		
 		return "index";
 	}
+	
+	@RequestMapping(value = "/auth/signUp")
+	public String getSignUp() {
+		
+		return "auth/signUp";
+	}
 }
