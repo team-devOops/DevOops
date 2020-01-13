@@ -16,7 +16,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "/")
 	public String index() {
-<<<<<<< HEAD
 		
 		return "index";
 	}
@@ -30,29 +29,13 @@ public class HomeController {
 	
 	@RequestMapping(value = "/test")
 	public String test() {
-=======
->>>>>>> refs/remotes/origin/master
 		
 		return "index";
 	}
-
-	//추후수정필요
-	@RequestMapping(value = "/common/common")
-	public String common() {
-
-		return "common/common";
-	}
 	
-<<<<<<< HEAD
 	@RequestMapping(value = "/auth/signUp")
 	public String getSignUp() {
 		
 		return "auth/signUp";
-=======
-	@RequestMapping(value = "/test")
-	public String test() {
-		
-		return "index";
->>>>>>> refs/remotes/origin/master
 	}
 }
