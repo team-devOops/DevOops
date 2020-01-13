@@ -39,3 +39,14 @@ function formSubmit(action, formObj, method) {
 	
 	formObj.submit();
 }
+
+const getDom = (id) => document.getElementById(id);
+
+const appendHtml = (targetID,resourceID) => {
+	let targetDom = getDom(targetID);
+	let addDom =  document.createElement("div");
+	addDom.innerHTML =`<object type="text/html" data=${resourceID}>`
+
+	targetDom.appendChild(addDom);
+};
+
