@@ -22,6 +22,7 @@ public class BoradController {
 
     @GetMapping("/list/{category}")
     public List<Board> list (@PathVariable Map<String,Object> pathVal){
+    	System.out.println("TEST");
         return boardService.listBoard((Integer)pathVal.get("category"));
     }
 
