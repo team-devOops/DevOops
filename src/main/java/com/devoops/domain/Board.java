@@ -16,8 +16,7 @@ import java.awt.*;
 @Builder
 @Entity
 @Table(name = "T_MST_BOARD")
-
-public class Board extends BaseVO{
+public class Board extends BaseBoardVO{
     @Id
     @GeneratedValue
     private long id;
