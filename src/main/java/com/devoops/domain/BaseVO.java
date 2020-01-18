@@ -7,15 +7,20 @@ import lombok.NoArgsConstructor;
 import utils.DateUtils;
 import utils.StringUtils;
 
+import javax.persistence.MapKeyEnumerated;
+import javax.persistence.MappedSuperclass;
 
+
+@MappedSuperclass
 @NoArgsConstructor
 @Getter
-public class BaseVO {
+public abstract class BaseVO {
 
     private String regUserId;
     private Date regDt;
     private String updUserId;
     private Date updDt;
+
 
     public void setRegUserId(String regUserId) {
         if(StringUtils.isEmpty(regUserId)) {
@@ -26,7 +31,7 @@ public class BaseVO {
     }
 
     public void setRegDt(Date regDt) {
-        if(regDt == null) {
+        if(regDt.equals(null)) {
             regDt = DateUtils.getTimeStamp();
         }
 
@@ -41,7 +46,7 @@ public class BaseVO {
     }
 
     public void setUpdDt(Date updDt) {
-        if(updDt == null) {
+        if(updDt.equals(null)) {
             updDt = DateUtils.getTimeStamp();
         }
 

@@ -3,6 +3,9 @@ package com.devoops.controller;
 
 import com.devoops.domain.Board;
 import com.devoops.service.board.BoardService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +14,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/board")
+
 public class BoradController {
 
-    @Autowired
-    BoardService boardService;
+
+    private BoardService boardService;
 
 
     @GetMapping("/list/{category}")
@@ -22,10 +26,6 @@ public class BoradController {
     	return boardService.listBoard((Integer)pathVal.get("category"));
     }
 
-    @PostMapping("one")
-    public int saveOne(@RequestParam Board board){
-
-    }
 
 
 }
