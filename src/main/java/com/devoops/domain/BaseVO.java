@@ -7,10 +7,12 @@ import javax.persistence.MappedSuperclass;
 import com.devoops.component.BaseComponent;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import utils.DateUtils;
 import utils.StringUtils;
 
 @MappedSuperclass
+@NoArgsConstructor
 @Getter
 public abstract class BaseVO extends BaseComponent {
 
@@ -18,6 +20,7 @@ public abstract class BaseVO extends BaseComponent {
     private Date regDt;
     private String updUserId;
     private Date updDt;
+
 
     public void setRegUserId(String regUserId) {
         if(StringUtils.isEmpty(regUserId)) {
@@ -28,7 +31,7 @@ public abstract class BaseVO extends BaseComponent {
     }
 
     public void setRegDt(Date regDt) {
-        if(regDt == null) {
+        if(regDt.equals(null)) {
             regDt = DateUtils.getTimeStamp();
         }
 
@@ -43,7 +46,7 @@ public abstract class BaseVO extends BaseComponent {
     }
 
     public void setUpdDt(Date updDt) {
-        if(updDt == null) {
+        if(updDt.equals(null)) {
             updDt = DateUtils.getTimeStamp();
         }
 
