@@ -2,15 +2,17 @@ package com.devoops.domain;
 
 import java.util.Date;
 
+import javax.persistence.MappedSuperclass;
+
+import com.devoops.component.BaseComponent;
+
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import utils.DateUtils;
 import utils.StringUtils;
 
-
-@NoArgsConstructor
+@MappedSuperclass
 @Getter
-public class BaseVO {
+public abstract class BaseVO extends BaseComponent {
 
     private String regUserId;
     private Date regDt;
@@ -19,7 +21,7 @@ public class BaseVO {
 
     public void setRegUserId(String regUserId) {
         if(StringUtils.isEmpty(regUserId)) {
-            //여기다가 비어있으면 loginSession ID 넣어준다...
+        	regUserId = loginSession.getCustInfo().getUserId();
         }
 
         this.regUserId = regUserId;
@@ -35,7 +37,7 @@ public class BaseVO {
 
     public void setUpdUserId(String updUserId) {
         if(StringUtils.isEmpty(updUserId)) {
-            //여기다가 비어있으면 loginSession ID 넣어준다…
+        	updUserId = loginSession.getCustInfo().getUserId();
         }
         this.updUserId = updUserId;
     }
