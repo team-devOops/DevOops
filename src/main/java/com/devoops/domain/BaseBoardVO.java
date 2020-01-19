@@ -1,16 +1,13 @@
 package com.devoops.domain;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import utils.DateUtils;
-import utils.StringUtils;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import java.util.Date;
-
 
 @MappedSuperclass
 @Getter
@@ -29,12 +26,9 @@ public abstract class BaseBoardVO {
     private Date regDt;
     private Date updDt;
 
-
     BaseBoardVO(){
         this.regDt = DateUtils.getTimeStamp();
-
     }
-
 
     public void setRegDt(Date regDt) {
         if(regDt.equals(null)) {

@@ -1,12 +1,4 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-*      FILE NAME : LoginSession.java
-* REPORTING DATE : 2020.01.06
-*     WRITTEN BY : zinzoddari@gmail.com
-=====================================================
-* REVISION HISTORY
-* * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-package common;
+package com.devoops.mgr;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,8 +6,32 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-public class SessionCommon {
+public abstract class AbstractLoginSession implements LoginSession {
 	
+	protected CustInfo custInfo;
+	
+	
+	public AbstractLoginSession() {
+		
+	}
+	
+	public CustInfo getCustInfo() {
+		return this.custInfo;
+	}
+	
+	public String getUserId() {
+		return this.custInfo.getUserId();
+	}
+	
+	public String getName() {
+		return this.custInfo.getName();
+	}
+	
+	public String getEmail() {
+		return this.custInfo.getEmail();
+	}
+	
+	/**********************************/
 	/**
 	 * 임시 세션 저장
 	 * @author zinzo
@@ -28,15 +44,14 @@ public class SessionCommon {
 	 * 임시 세션 삭제
 	 * @author zinzo
 	 */
-	@SuppressWarnings("null")
 	public static void popTempSession(String key) {
 		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
 		
 		HttpSession session = null;
+
+		session = request.getSession();
 		
 		if(session.getAttribute(key) != null) {
-			session = request.getSession();
-			
 			session.removeAttribute(key);
 		}
 	}
@@ -45,16 +60,29 @@ public class SessionCommon {
 	 * 도메인 세션 등록
 	 * @author zinzo
 	 */
-	@SuppressWarnings("null")
 	public static void setSession(String sessionName, Object object) {
+		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
+		
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute(sessionName) == null) {
+			session.setAttribute(sessionName, object);
+		}
+	}
+	
+	/**
+	 * 도메인 세션 Get
+	 * @author zinzo
+	 */
+	@SuppressWarnings("null")
+	public static Object getSession(String sessionName) {
 		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
 		
 		HttpSession session = null;
 		
-		if(session.getAttribute(sessionName) == null) {
-			session = request.getSession(false);
-			
-			session.setAttribute(sessionName, object);
+		if(session.getAttribute(sessionName) != null) {
+			return request.getAttribute(sessionName);
 		}
+		return null;
 	}
 }

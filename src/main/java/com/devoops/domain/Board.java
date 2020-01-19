@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.awt.*;
 
 @Getter
 @Setter
@@ -16,7 +15,8 @@ import java.awt.*;
 @Builder
 @Entity
 @Table(name = "T_MST_BOARD")
-public class Board extends BaseBoardVO{
+public class Board extends BaseBoardVO {
+	
     @Id
     @GeneratedValue
     private long id;
@@ -24,5 +24,5 @@ public class Board extends BaseBoardVO{
     private String title;
     private String context;
     private String mainPictures;
-
+    
 }
