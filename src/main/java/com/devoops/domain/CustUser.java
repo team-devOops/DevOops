@@ -2,6 +2,8 @@ package com.devoops.domain;
 
 import javax.persistence.*;
 
+import com.devoops.mgr.CustInfo;
+
 import lombok.*;
 
 @Getter @Setter
@@ -11,7 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @Table(name = "T_CUST_USER")
-public class CustUser extends BaseVO {
+public class CustUser extends BaseVO implements CustInfo {
 	
 	@Id
 	private String userId;
@@ -21,4 +23,5 @@ public class CustUser extends BaseVO {
 	private String emailAuthYn;
 	private String imgUrl;
 	private String useYn;
+
 }
