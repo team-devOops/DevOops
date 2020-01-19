@@ -5,6 +5,15 @@
     <title>Title</title>
     <link rel="import" href="/common/common">
     <script type="text/javascript" src="/js/main/script-main.js"></script>
+    <script type="text/javascript" src="/js/board/board.js"></script>
+    <script>
+        window.onload  = () => {
+            const board = new Board();
+            console.dir(board.boardlist());
+        };
+
+    </script>
+
 </head>
 <body>
 
