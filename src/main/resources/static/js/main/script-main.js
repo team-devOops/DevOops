@@ -8,9 +8,16 @@
 
 main = function() {
 	return {
-		submit: function (formObj) {
-			formSubmit("/auth/signUp", formObj, "get");
+		init : function() {
 
+		},
+		
+		submit: function(formObj) {
+			common.layerpopup.openAlert('ㅋㅋ', 'ㅎㅎ', 'rightBtn');
 		}
+	}
+	
+	return {
+		init : init
 	}
 }();
