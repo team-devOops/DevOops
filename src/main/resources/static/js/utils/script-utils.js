@@ -7,6 +7,13 @@
  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
 
 /**
+ * id로 DOM get
+ */
+function getElementId(objId) {
+	return document.getElementById(objId);
+}
+
+/**
  * 값이 NULL인지 CHECK
  */
 function isNull(obj) {
