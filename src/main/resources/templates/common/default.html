@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <!-- 공통 css, js, meta tag -->
+    <th:block th:replace="common/common"></th:block>
+</head>
+<body>
+    <!-- page content body 구성 -->
+    <th:block layout:fragment="content"></th:block>
+    
+    <!-- 공통 javascript -->
+    <th:block th:replace="common/layerpopup"></th:block>
+</body>
+</html>
