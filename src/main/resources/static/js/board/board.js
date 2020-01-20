@@ -25,11 +25,27 @@ class Board {
     }
 
     async boardlist(){
-         let board = await HttpFecth("/board/list/1","get");
-         console.dir(JSON.stringify(board));
+        console.log(call);
+        let board = await HttpFecth("/board/list/1","get");
+        await this.drawBoard(board);
+
     }
 
-    drawForm(){
+    drawBoard(json){
+
+        json.forEach((data)=>{
+            let el = document.createElement('div');
+            el.setAttribute("class","column");
+
+            let template = document.querySelector('#card');
+            template.content.querySelector('.header').text = data.title;
+            let clone = document.importNode(template.content,true);
+
+            let targetDom = document.getElementById("row");
+
+            targetDom.appendChild(clone);
+
+        });
 
     }
 

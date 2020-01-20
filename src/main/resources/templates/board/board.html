@@ -3,144 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="import" href="/common/common">
+    <link rel="import" href="/html/common/common">
+    <!--<link rel="import" href="/html/board/card">-->
     <script type="text/javascript" src="/js/main/script-main.js"></script>
     <script type="text/javascript" src="/js/board/board.js"></script>
     <script>
+
         window.onload  = () => {
-            const board = new Board();
-            console.dir(board.boardlist());
+
+            var board = new Board();
+
+
+
+
         };
 
+
+
+
     </script>
+
+    <template id ="card">
+        <div class="ui card">
+            <div class="ui slide masked reveal image">
+                <img src="/images/avatar/large/jenny.jpg" class="visible content">
+                <img src="/images/avatar/large/elliot.jpg" class="hidden content">
+            </div>
+            <div class="content">
+                <a class="header">Team Fu &amp; Hess</a>
+                <div class="meta">
+                    <span class="date">Created in Sep 2014</span>
+                </div>
+            </div>
+            <div class="extra content">
+                <a>
+                    <i class="users icon"></i>
+                    2 Members
+                </a>
+            </div>
+        </div>
+    </template>
+
 
 </head>
 <body>
 
+<input type="button" onclick="console.log('클릭했당');">
+    클릭해
 
+</input>
+
+
+<!--<button onclick="board.boardlist()" >
+    클릭해
+
+</button>-->
 
 <div class="ui four column grid">
-    <div class="row">
-        <div class="column">
-
-            <div class="ui card">
-                    <div class="ui slide masked reveal image">
-                        <img src="/images/avatar/large/jenny.jpg" class="visible content">
-                        <img src="/images/avatar/large/elliot.jpg" class="hidden content">
-                    </div>
-                    <div class="content">
-                        <a class="header">Team Fu &amp; Hess</a>
-                        <div class="meta">
-                            <span class="date">Created in Sep 2014</span>
-                        </div>
-                    </div>
-                    <div class="extra content">
-                        <a>
-                            <i class="users icon"></i>
-                            2 Members
-                        </a>
-                    </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="column">
-
-
-            <div class="ui card">
-                <div class="ui slide masked reveal image">
-                    <img src="/images/avatar/large/jenny.jpg" class="visible content">
-                    <img src="/images/avatar/large/elliot.jpg" class="hidden content">
-                </div>
-                <div class="content">
-                    <a class="header">Team Fu &amp; Hess</a>
-                    <div class="meta">
-                        <span class="date">Created in Sep 2014</span>
-                    </div>
-                </div>
-                <div class="extra content">
-                    <a>
-                        <i class="users icon"></i>
-                        2 Members
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="ui card">
-                <div class="ui slide masked reveal image">
-                    <img src="/images/avatar/large/jenny.jpg" class="visible content">
-                    <img src="/images/avatar/large/elliot.jpg" class="hidden content">
-                </div>
-                <div class="content">
-                    <a class="header">Team Fu &amp; Hess</a>
-                    <div class="meta">
-                        <span class="date">Created in Sep 2014</span>
-                    </div>
-                </div>
-                <div class="extra content">
-                    <a>
-                        <i class="users icon"></i>
-                        2 Members
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="ui card">
-                <div class="ui slide masked reveal image">
-                    <img src="/images/avatar/large/jenny.jpg" class="visible content">
-                    <img src="/images/avatar/large/elliot.jpg" class="hidden content">
-                </div>
-                <div class="content">
-                    <a class="header">Team Fu &amp; Hess</a>
-                    <div class="meta">
-                        <span class="date">Created in Sep 2014</span>
-                    </div>
-                </div>
-                <div class="extra content">
-                    <a>
-                        <i class="users icon"></i>
-                        2 Members
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="ui card">
-                <div class="ui slide masked reveal image">
-                    <img src="/images/avatar/large/jenny.jpg" class="visible content">
-                    <img src="/images/avatar/large/elliot.jpg" class="hidden content">
-                </div>
-                <div class="content">
-                    <a class="header">Team Fu &amp; Hess</a>
-                    <div class="meta">
-                        <span class="date">Created in Sep 2014</span>
-                    </div>
-                </div>
-                <div class="extra content">
-                    <a>
-                        <i class="users icon"></i>
-                        2 Members
-                    </a>
-                </div>
-            </div>
-        </div>
+    <div id="row" class="row">
 
     </div>
-
 </div>
-
-
-
 
 
 
 </body>
 </html>
+
