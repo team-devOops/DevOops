@@ -15,12 +15,17 @@ import java.util.Map;
 @RestController
 @RequestMapping("/board")
 @RequiredArgsConstructor
-public class BoradController {
+public class BoardController {
 
     private final BoardService boardService;
+
 
     @GetMapping("/list/{category}")
     public List<Board> list (@PathVariable Map<String,Object> pathVal){
         return boardService.listBoard(Integer.parseInt(pathVal.get("category").toString()));
     }
+
+
+
+
 }

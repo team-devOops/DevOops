@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="import" href="/html/common/common">
-    <!--<link rel="import" href="/html/board/card">-->
+
+
     <script type="text/javascript" src="/js/main/script-main.js"></script>
+    <link rel="import" href="/html/common/common">
     <script type="text/javascript" src="/js/board/board.js"></script>
     <script>
-
-        window.onload  = () => {
-
-            var board = new Board();
-
-
+        const board = new Board();
+        window.onload  = function(){
 
 
         };
@@ -23,49 +20,54 @@
 
     </script>
 
-    <template id ="card">
-        <div class="ui card">
-            <div class="ui slide masked reveal image">
-                <img src="/images/avatar/large/jenny.jpg" class="visible content">
-                <img src="/images/avatar/large/elliot.jpg" class="hidden content">
-            </div>
-            <div class="content">
-                <a class="header">Team Fu &amp; Hess</a>
-                <div class="meta">
-                    <span class="date">Created in Sep 2014</span>
-                </div>
-            </div>
-            <div class="extra content">
-                <a>
-                    <i class="users icon"></i>
-                    2 Members
-                </a>
-            </div>
-        </div>
-    </template>
 
 
 </head>
 <body>
 
-<input type="button" onclick="console.log('클릭했당');">
-    클릭해
-
-</input>
 
 
-<!--<button onclick="board.boardlist()" >
-    클릭해
+<div class="full height">
+    <div class="ui vertical sidebar inverted menu visible left">
+        <div class="item">
+            <button onclick="board.boardlist()">
+                버튼 입니다.
+            </button>
+        </div>
+    </div>
 
-</button>-->
+    <div class="article">
 
-<div class="ui four column grid">
-    <div id="row" class="row">
 
+        <div class="main ui container">
+            <div id= "contents" class="ui four column grid">
+
+            </div>
+        </div>
     </div>
 </div>
 
 
+<template id ="card">
+    <div class="ui card">
+        <div class="ui slide masked reveal image">
+            <img src="/img/test.jpg" class="visible content">
+            <img src="/img/test2.jpg" class="hidden content">
+        </div>
+        <div class="content">
+            <a class="header">Team Fu &amp; Hess</a>
+            <div class="meta">
+                <span class="date">Created in Sep 2014</span>
+            </div>
+        </div>
+        <div class="extra content">
+            <a>
+                <i class="users icon"></i>
+                2 Members
+            </a>
+        </div>
+    </div>
+</template>
 
 </body>
 </html>
