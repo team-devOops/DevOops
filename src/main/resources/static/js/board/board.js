@@ -1,4 +1,5 @@
-const HttpFecth = (url,method,body,headers )=>{
+
+const httpFecth = (url,method,body,headers )=>{
 
     if(headers === undefined){
         headers = new Headers();
@@ -18,16 +19,16 @@ const HttpFecth = (url,method,body,headers )=>{
 
 };
 
-class Board {
+const Board = class Board {
 
     constructor(){
-        this.init();
+
     }
 
-    async boardlist(){
-        console.log(call);
-        let board = await HttpFecth("/board/list/1","get");
-        await this.drawBoard(board);
+     async boardlist(){
+
+        let board = await httpFecth("/board/list/1","get");
+        this.drawBoard(board);
 
     }
 
@@ -41,7 +42,7 @@ class Board {
             template.content.querySelector('.header').text = data.title;
             let clone = document.importNode(template.content,true);
 
-            let targetDom = document.getElementById("row");
+            let targetDom = document.getElementById("contents");
 
             targetDom.appendChild(clone);
 
@@ -49,9 +50,15 @@ class Board {
 
     }
 
-    init() {
+};
+    /*
 
-    }
+    board = function() {
+        return {
+            button : function() {
+                console.log("니 똥 꼬");
+            }
+        }
+    }();
 
-}
-
+    */
