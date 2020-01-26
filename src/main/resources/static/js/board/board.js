@@ -35,16 +35,15 @@ const Board = class Board {
     drawBoard(json){
 
         json.forEach((data)=>{
+
             let el = document.createElement('div');
-            el.setAttribute("class","column");
+
 
             let template = document.querySelector('#card');
             template.content.querySelector('.header').text = data.title;
             let clone = document.importNode(template.content,true);
 
-            let targetDom = document.getElementById("contents");
-
-            targetDom.appendChild(clone);
+            let targetDom = document.getElementById("contents");targetDom.appendChild(clone);
 
         });
 

@@ -1,9 +1,11 @@
 package com.devoops.controller;
 
 
+import com.devoops.component.BaseComponent;
 import com.devoops.domain.Board;
 import com.devoops.service.board.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +17,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/board")
 @RequiredArgsConstructor
-public class BoardController {
+public class BoardController{
 
     private final BoardService boardService;
+
+    @Autowired
+    BaseComponent baseComponent;
 
 
     @GetMapping("/list/{category}")
