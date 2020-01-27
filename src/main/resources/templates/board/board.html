@@ -10,15 +10,19 @@
     <script type="text/javascript" src="/js/board/board.js"></script>
     <script>
         const board = new Board();
-        let page = 1;
+        let page = 0;
+        let nextFage = false;
 
-        window.onload  = function(){
-            board.boardlist(page++);
+
+        window.onload  = async function(){
+            nextFage = await board.boardlist(page++);
         };
 
-        window.onscroll = function (e) {
+        window.onscroll =  async function (e) {
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                board.boardlist();
+                if(nextFage){
+                    nextFage = await board.boardlist(page++);
+                }
             }
 
         }

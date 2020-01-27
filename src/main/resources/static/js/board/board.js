@@ -1,26 +1,12 @@
 
-const manuGetQuery  = (param) => {
-    let reParam;
+const manuGetQuery  = (param) => Object.keys(param).map(key => key + '=' + param[key]).join('&');
 
-    console.dir(param);
-
-    for(let key in param){
-        let value = param[key];
-
-        if(value !== undefined && value ===''){
-            reParam += `${key}=${value}&&`;
-        }
-    }
-    reParam = reParam === undefined ? '' : reParam;
-
-    return reParam;
-};
 
 
 const httpFecth = (url,method,body,headers)=>{
     if(headers === undefined) {headers = new Headers();}
 
-    if(method === 'get') {url += manuGetQuery(body); body = undefined;}
+    if(method === 'get') {url += '?'+manuGetQuery(body); body = undefined;}
 
     return fetch(url,{method, body, headers
 
@@ -43,15 +29,22 @@ const Board = class Board {
 
         let body = {
             "page" : page ,
-            "size" : 1
+            "size" : 16
         };
 
-
-
         let board = await httpFecth(`/board/list/1`,"get",body);
+
         if(board !== undefined || board !== '') {
            await this.drawBoard(board);
         }
+
+        if(await board.length === 0) {
+            return await false;
+        }else{
+            return await true;
+        }
+
+
 
     }
 
