@@ -24,6 +24,16 @@ function isNull(obj) {
 }
 
 /**
+ * 값이 NULL이 아니면 false 반환
+ */
+function isNotNull(obj) {
+	if(obj.value != null || obj.value != "") {
+		return false;
+	}
+	else return true;
+}
+
+/**
  * 숫자값에 콤마 출력
  */
 function numberWithComma(obj) {
@@ -56,12 +66,14 @@ function requstAjax(action, formObj, method, async, callback) {
 
 	var formData = formToFormData(formObj);
 
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
-        	callback(JSON.parse(xhr.response));
-        }
-      }
+	xhr.onreadystatechange = function() {
+    	if (xhr.readyState === 4) {
+    		if (xhr.status === 200) {
+    			if(xhr.response != null) {
+    				callback(JSON.parse(xhr.response));
+    			}
+    		}
+    	}
     };
 
     xhr.open(method, action, async);
