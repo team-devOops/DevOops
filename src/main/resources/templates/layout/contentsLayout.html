@@ -1,106 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<<<<<<< HEAD
-<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" name="viewport">
-<head>
-    <!-- 공통 css, js, meta tag -->
-    <th:block th:replace="common/common"></th:block>
-</head>
-<script>
-	$(document).ready(codewithoutrules.ready);
-</script>
-
-<body class="index">
-	<!-- Fixed sidebar for wide screens -->
-    <div class="ui left sidebar ui segment vertical visible fixed menu" id="toc" style="box-shadow: none;">
-    	<div class="ui center aligned container">
-			<div class="item">Home</div>
-			<div class="item">
-				<div class="ui card">
-					<a class="image dimmed" href="#">
-						<img src="http://www.gravatar.com/avatar/3a2b8f59fc7bb395868a35d9cf8c6716?d=retro" class="visible content">
-					</a>
-				</div>
-			</div>
-			<a href="#1"><div class="item">Item 2</div></a>
-			<a href="#2"><div class="item">Item 3</div></a>
-		</div>
-	</div>
-	
-	<div class="pusher" id="main-content">
-		<!-- Top bar and pop-in side menu for narrow screens -->
-		<div class="ui secondary top menu" id="top-menu">
-			<div class="ui container">
-				<a class="launch icon item" id="sidebar-menu-button">
-					<i class="content icon"></i>
-				</a>
-			</div>
-		</div>
-		<div class="ui padded basic segment" id="main">
-			<th:block layout:fragment="content"></th:block>
-		</div>
-	</div>
-	
-    <!-- 공통 javascript -->
-    <th:block th:replace="common/layerpopup"></th:block>
-</body>
-</html>
-=======
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" name="viewport">
     <head>
         <!-- 공통 css, js, meta tag -->
         <th:block th:replace="common/common"></th:block>
     </head>
-    <body>
-        <!-- <div class="pusher">
-            <div class="full height">
-                <div class="toc">
-                    <div class="ui left visible sidebar vertical inverted menu center aligned container">
-                        <div class="item">
-                            <div class="ui card">
-                                <a class="image dimmed" href="#">
-                                    <img src="/img/common/noneImage.png" class="visible content">
-                                </a>
-                            </div>
-                        </div>
-                        <a class="">
-                          1
-                        </a>
-                        <a class="">
-                          2
-                        </a>
-                        <a class="">
-                          3zz
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="article">
-                page content body 구성
-                <div class="ui main text container">
-                    <th:block layout:fragment="content"></th:block>
-                </div>
-            </div>
-        </div> -->
+    <script>
+        $(document).ready(codewithoutrules.ready);
+    </script>
 
-        <div class="ui grid">
-            <div class="three wide column olive">
-                <div class="ui secondary ui left fixed vertical menu center aligned container">
-                    <div class="item">
-                        <div class="ui card">
-                            <a class="image dimmed" href="#">
-                                <img src="/img/common/noneImage.png" class="visible content">
-                            </a>
-                        </div>
+    <body class="index">
+        <!-- Fixed sidebar for wide screens -->
+        <div class="ui left sidebar ui segment vertical visible fixed menu" id="toc" style="box-shadow: none;">
+            <div class="ui center aligned container">
+                <div class="item">Home</div>
+                <div class="item">
+                    <div class="ui card">
+                        <a class="image dimmed" href="#">
+                            <img src="http://www.gravatar.com/avatar/3a2b8f59fc7bb395868a35d9cf8c6716?d=retro" class="visible content">
+                        </a>
                     </div>
-                    <a class="item">
-                        씰
+                    <div>
+                        <h2>Zinzo</h2>
+                    </div>
+                </div>
+                <a href="#1"><div class="item">Item 2</div></a>
+                <a href="#2"><div class="item">Item 3</div></a>
+            </div>
+        </div>
+
+        <div class="pusher" id="main-content">
+            <!-- Top bar and pop-in side menu for narrow screens -->
+            <div class="ui secondary top menu" id="top-menu">
+                <div class="ui container">
+                    <a class="launch icon item" id="sidebar-menu-button">
+                        <i class="content icon"></i>
                     </a>
                 </div>
             </div>
-            <div class="thirteen wide column red">
-                <div class="ui main" style="margin-top: 4em;">
-                    <th:block layout:fragment="content"></th:block>
-                </div>
+            <div class="ui padded basic segment" id="main">
+                <th:block layout:fragment="content"></th:block>
             </div>
         </div>
 
@@ -108,4 +47,3 @@
         <th:block th:replace="common/layerpopup"></th:block>
     </body>
 </html>
->>>>>>> branch 'master' of https://github.com/kbh0581/OopsProject.git
