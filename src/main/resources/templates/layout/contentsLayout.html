@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<<<<<<< HEAD
 <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" name="viewport">
 <head>
     <!-- 공통 css, js, meta tag -->
@@ -44,3 +45,67 @@
     <th:block th:replace="common/layerpopup"></th:block>
 </body>
 </html>
+=======
+    <head>
+        <!-- 공통 css, js, meta tag -->
+        <th:block th:replace="common/common"></th:block>
+    </head>
+    <body>
+        <!-- <div class="pusher">
+            <div class="full height">
+                <div class="toc">
+                    <div class="ui left visible sidebar vertical inverted menu center aligned container">
+                        <div class="item">
+                            <div class="ui card">
+                                <a class="image dimmed" href="#">
+                                    <img src="/img/common/noneImage.png" class="visible content">
+                                </a>
+                            </div>
+                        </div>
+                        <a class="">
+                          1
+                        </a>
+                        <a class="">
+                          2
+                        </a>
+                        <a class="">
+                          3zz
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="article">
+                page content body 구성
+                <div class="ui main text container">
+                    <th:block layout:fragment="content"></th:block>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="ui grid">
+            <div class="three wide column olive">
+                <div class="ui secondary ui left fixed vertical menu center aligned container">
+                    <div class="item">
+                        <div class="ui card">
+                            <a class="image dimmed" href="#">
+                                <img src="/img/common/noneImage.png" class="visible content">
+                            </a>
+                        </div>
+                    </div>
+                    <a class="item">
+                        씰
+                    </a>
+                </div>
+            </div>
+            <div class="thirteen wide column red">
+                <div class="ui main" style="margin-top: 4em;">
+                    <th:block layout:fragment="content"></th:block>
+                </div>
+            </div>
+        </div>
+
+        <!-- 공통 javascript -->
+        <th:block th:replace="common/layerpopup"></th:block>
+    </body>
+</html>
+>>>>>>> branch 'master' of https://github.com/kbh0581/OopsProject.git

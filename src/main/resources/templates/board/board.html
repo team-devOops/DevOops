@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="/layout/contentsLayout">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -11,9 +11,20 @@
     <script>
         const board = new Board();
         window.onload  = function(){
+            board.boardlist();
+            board.boardlist();
+            board.boardlist();
+            board.boardlist();
 
 
         };
+
+        window.onscroll = function (e) {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                board.boardlist();
+            }
+
+        }
 
 
 
@@ -24,51 +35,53 @@
 
 </head>
 <body>
+<th:block layout:fragment="content">
 
 
 
-<div class="full height">
-    <div class="ui vertical sidebar inverted menu visible left">
-        <div class="item">
-            <button onclick="board.boardlist()">
-                버튼 입니다.
-            </button>
+
+
+            <!--<div class="ui vertical sidebar inverted menu visible">-->
+                <!--<div class="item">-->
+                    <!--<button onclick="board.boardlist()">-->
+                        <!--버튼 입니다.-->
+                    <!--</button>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+
+        <div id= "contents" class="ui grid">
+
         </div>
-    </div>
-
-    <div class="article">
 
 
-        <div class="main ui container">
-            <div id= "contents" class="ui four column grid">
 
+
+
+    <template id ="card">
+        <div class="column four wide">
+            <div class="ui card">
+                <div class="ui slide masked reveal image">
+                    <img src="/img/test.jpg" class="visible content">
+                    <img src="/img/test2.jpg" class="hidden content">
+                </div>
+                <div class="content">
+                    <a class="header">Team Fu &amp; Hess</a>
+                    <div class="meta">
+                        <span class="date">Created in Sep 2014</span>
+                    </div>
+                </div>
+                <div class="extra content">
+                    <a>
+                        <i class="users icon"></i>
+                        2 Members
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-
-<template id ="card">
-    <div class="ui card">
-        <div class="ui slide masked reveal image">
-            <img src="/img/test.jpg" class="visible content">
-            <img src="/img/test2.jpg" class="hidden content">
-        </div>
-        <div class="content">
-            <a class="header">Team Fu &amp; Hess</a>
-            <div class="meta">
-                <span class="date">Created in Sep 2014</span>
-            </div>
-        </div>
-        <div class="extra content">
-            <a>
-                <i class="users icon"></i>
-                2 Members
-            </a>
-        </div>
-    </div>
-</template>
-
+    </template>
+</th:block>
 </body>
 </html>
 
