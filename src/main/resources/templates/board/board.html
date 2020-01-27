@@ -10,13 +10,10 @@
     <script type="text/javascript" src="/js/board/board.js"></script>
     <script>
         const board = new Board();
+        let page = 1;
+
         window.onload  = function(){
-            board.boardlist();
-            board.boardlist();
-            board.boardlist();
-            board.boardlist();
-
-
+            board.boardlist(page++);
         };
 
         window.onscroll = function (e) {

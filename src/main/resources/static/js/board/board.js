@@ -1,21 +1,35 @@
 
-const httpFecth = (url,method,body,headers )=>{
+const manuGetQuery  = (param) => {
+    let reParam;
 
-    if(headers === undefined){
-        headers = new Headers();
+    console.dir(param);
+
+    for(let key in param){
+        let value = param[key];
+
+        if(value !== undefined && value ===''){
+            reParam += `${key}=${value}&&`;
+        }
     }
-    console.log(url);
-    return fetch(url,{
-        method  ,
-        body ,
-        headers
+    reParam = reParam === undefined ? '' : reParam;
+
+    return reParam;
+};
+
+
+const httpFecth = (url,method,body,headers)=>{
+    if(headers === undefined) {headers = new Headers();}
+
+    if(method === 'get') {url += manuGetQuery(body); body = undefined;}
+
+    return fetch(url,{method, body, headers
 
     }).then((res)=> {
         console.log("then   " + url);
         return res.json();}
 
 
-    ).catch(err => err)
+    ).catch(err => {console.error(err)})
 
 };
 
@@ -25,12 +39,22 @@ const Board = class Board {
 
     }
 
-     async boardlist(){
+     async boardlist(page){
 
-        let board = await httpFecth("/board/list/1","get");
-        this.drawBoard(board);
+        let body = {
+            "page" : page ,
+            "size" : 1
+        };
+
+
+
+        let board = await httpFecth(`/board/list/1`,"get",body);
+        if(board !== undefined || board !== '') {
+           await this.drawBoard(board);
+        }
 
     }
+
 
     drawBoard(json){
 
@@ -50,14 +74,3 @@ const Board = class Board {
     }
 
 };
-    /*
-
-    board = function() {
-        return {
-            button : function() {
-                console.log("니 똥 꼬");
-            }
-        }
-    }();
-
-    */
