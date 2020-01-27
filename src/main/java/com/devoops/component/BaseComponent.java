@@ -11,7 +11,8 @@ public class BaseComponent {
 	
 	protected LoginSession loginSession;
 	
+	
 	public BaseComponent() {
-		this.loginSession = new LoginSession();
+		
 	}
 }
