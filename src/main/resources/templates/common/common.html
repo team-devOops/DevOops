@@ -7,16 +7,25 @@
 	<script type="text/javascript" src="/js/common/script-layerpopup.js"></script>
 	<script type="text/javascript" src="/js/common/script-validate.js"></script>
 	
-	<!-- 공통 CSS -->
-	<link href="/css/common/sidebar.css" rel="stylesheet" />
-
-	<!-- jQuery -->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
-	<!-- ### SEMANTIC UI CONFIG ### -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-	<!-- ### END SEMANTIC UI CONFIG ### -->
+	<!-- Start BootStrap4 config -->
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css" rel="stylesheet">
+	
+	<!-- JQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js"></script>
+	<!-- End BootStrap4 config -->
 	
 	<!-- ### LOADING BAR CONFIG ### -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,41 +36,4 @@
 	<!-- <div class="col-sm-2 col-xs-4 text-center">
 	    <div class="loading"> </div>
 	</div> -->
-	
-	<script>
-	window.onload = function() {
-		window.scrollTo(x-coord, y-coord);
-	}
-	
-	window.codewithoutrules = {};
-
-	codewithoutrules.ready = function() {
-	    $("#toc").sidebar("setting", "dimPage", false);
-	    if (matchMedia) {
-	        var mq = window.matchMedia("(max-width: 700px)");
-	        mq.addListener(big_or_small);
-	        big_or_small(mq);
-	    }
-
-
-	    function big_or_small(mq) {
-	        // The sidebar *pushes* the pusher, the main content, so we
-	        // add a class that reduces the pusher's width so the edge
-	        // content isn't cut off.
-	        if (mq.matches) {
-		    $("#toc").sidebar("hide");
-	            $("#main").removeClass("shrink")
-	        } else {
-	            $("#toc").sidebar("show");
-	            $("#main").addClass("shrink");
-	        }
-	    }
-
-	    $("#sidebar-menu-button").click(function() {
-	        $("#toc").sidebar("show");
-	    }).end();
-	}
-
-	$(document).ready(codewithoutrules.ready);
-    </script>
 </html>

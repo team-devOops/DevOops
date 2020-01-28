@@ -38,6 +38,7 @@ dependencies {
     }
     compile 'commons-codec:commons-codec:1.8'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+    compile 'rpalcolea.gravatar:gravatar:1.0.2'
 }
 
 test {
