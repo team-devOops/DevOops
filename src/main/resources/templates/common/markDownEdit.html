@@ -14,8 +14,26 @@
         }
     </style>
     <script>
-        let test =document.getElementById("test");
-        console.log(marked("### HI"));
+
+        const markDownDisPlay = (evenet,txt) =>{
+            if (evenet.keyCode == 9){
+
+            }
+            let lender = txt.innerText;
+            console.log(lender);
+
+            lender = marked(lender);
+
+
+            document.getElementById("test").innerHTML = lender;
+
+        };
+
+        window.onload = () => {
+            let txt = document.getElementById("txt");
+            txt.addEventListener("keyup",(evenet) => markDownDisPlay(event,txt),);
+
+        };
 
 
     </script>
@@ -25,23 +43,20 @@
 </head>
 <body>
 <th:block layout:fragment="content">
-    <div class="ui segment equal grid maxGridHeigh">
-        <div class="two wide column blue">
-        </div>
-        <div class="eight wide column red">
-            <div class="ui form maxGridHeigh">
-                <textarea class="input maxGridHeigh" onkeydown="">
 
+        <div id="txt" contenteditable>
 
-                </textarea>
-            </div>
         </div>
-        <div id ="test" class="eight wide column">
-        장난하냐
+
+        <div id ="test" class="eight wide column" style="background-color: black; color: white;">
+            <p>
+                안녕하세요
+                반갑습니다.
+            </p>
         </div>
 
 
-    </div>
+
 
 
 
