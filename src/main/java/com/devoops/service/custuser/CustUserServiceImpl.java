@@ -15,5 +15,17 @@ public class CustUserServiceImpl implements CustUserService {
     public void userSave(CustUser custuser) {
         custUserDAO.save(custuser);
     }
+
+	@Override
+	public CustUser searchCustUser(String userId, String userPw) {
+		CustUser custUser = custUserDAO.findByUserIdAndUserPwOrderByRegDtDesc(userId, userPw);
+		return custUser;
+	}
+
+	@Override
+	public CustUser searchCustUSer(String userId) {
+		CustUser custUser = custUserDAO.findByUserId(userId);
+		return custUser;
+	}
 }
 
