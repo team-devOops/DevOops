@@ -6,22 +6,30 @@
 =====================================================
 * REVISION HISTORY
  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="import" href="/common/common">
-    <script type="text/javascript" src="/js/auth/script-signup.js"></script>
-</head>
-<body>
-	<form id="frm" name="frm">
-		ID : <input type="text" id="userId" name="userId"/>
-		PW : <input type="password" name="userPw" />
-		NAME : <input type="text" name="name" />
-		EMAIL : <input type="text" name="email" />
-		
-	</form>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/emptyLayout">
+<th:block layout:fragment="content">
+	<script type="text/javascript" src="/js/auth/script-signup.js"></script>
+	<div id="indexDiv">
+		<input type="button" id="btnMoveSignUp" value="시작하기" onclick="signup.moveSignUp();" />
+		<input type="button" id="btnMoveSignIn" value="로그인" onclick="signup.moveSignIn();" />
+	</div>
 	
-	<input type="button" name="submit" onclick="signup.save(document.forms['frm']);" />
-</body>
+	<form id="frm" name="frm">
+		<div id="signUpDiv" style="display: none;">
+			
+				ID : <input type="text" id="userId" name="userId"/>
+				PW : <input type="password" name="userPw" />
+				NAME : <input type="text" name="name" />
+			
+			<div id="validateDiv" style="display: none;"><span id="validateLabel"></span></div>
+			<input type="button" id="btnSignUp" value="다음" onclick="signup.signUpStepOne(document.forms['frm']);" />
+		</div>
+		
+		<div id="emailAuthDiv" style="display: none;">
+			입력하신 이메일로 발송된 메일의 인증번호 입력!
+			 <input type="text" id="authNumber" name="authNumber"/>
+		</div>
+	</form>
+</th:block>
 </html>
