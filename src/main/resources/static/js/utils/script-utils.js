@@ -15,6 +15,26 @@ function getElementId(objId) {
 }
 
 /**
+ * 값 length CHECK
+ */
+function equalLength(obj, length) {
+	if(obj.length == length) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * 값 > length CHECK
+ */
+function isOverLength(obj, length) {
+	if(obj.length > length) {
+		return true;
+	}
+	return false;
+}
+
+/**
  * 값이 NULL인지 CHECK
  */
 function isNull(obj) {
