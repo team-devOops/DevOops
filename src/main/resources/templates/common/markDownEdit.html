@@ -16,22 +16,63 @@
     <script>
 
         const markDownDisPlay = (evenet,txt) =>{
-            if (evenet.keyCode == 9){
+            let startIndex = txt.selectionStart;
+            let endIndex = txt.selectionEnd;
 
+            if(evenet.key == 'Tab'){
+                txt.value = txt.value.substring(0,startIndex) + "\t" + txt.value.substring(endIndex);
+                console.log(startIndex);
+                txt.selectionEnd = startIndex+1;
+            }else if(evenet.key === 'Enter'){
+                txt.value = txt.value.substring(0,startIndex) + "   " + txt.value.substring(endIndex);
+                txt.selectionEnd = startIndex+1;
             }
-            let lender = txt.innerText;
-            console.log(lender);
 
-            lender = marked(lender);
+            //let lender = txt.innerText;
+            let lender = txt.value;
+            //lender.replace("\u00a0\u00a0\u00a0\u00a0","\t");
+            //console.log(lender);
+
+
+            lender = marked(lender)
+            //lender.replace("\t","\u00a0\u00a0\u00a0\u00a0");
 
 
             document.getElementById("test").innerHTML = lender;
 
         };
 
+        const divTab = (e) => {
+            e.preventDefault();
+            let range =window.getSelection().getRangeAt(0);
+            let tabNode = document.createTextNode("\u00a0\u00a0\u00a0\u00a0");
+            range.insertNode(tabNode);
+
+            range.setStartAfter(tabNode);
+            range.setEndAfter(tabNode);
+
+            console.log(`range: ${range}`);
+        };
+
+        const txtAreaTab  = (e,txt) =>{
+           // e.preventDefault();
+
+
+        };
+
+
+
         window.onload = () => {
-            let txt = document.getElementById("txt");
+            const txt = document.getElementById("txt");
             txt.addEventListener("keyup",(evenet) => markDownDisPlay(event,txt),);
+            txt.addEventListener("keydown",(evenet) => {
+                /*텝키 막기*/
+                if(evenet.key ==="Tab"){
+                    evenet.preventDefault();
+                }
+
+
+            },);
 
         };
 
@@ -44,9 +85,10 @@
 <body>
 <th:block layout:fragment="content">
 
-        <div id="txt" contenteditable>
+        <textarea id="txt" ></textarea>
+        <!--<div id="txt" contenteditable>-->
 
-        </div>
+        <!--</div>-->
 
         <div id ="test" class="eight wide column" style="background-color: black; color: white;">
             <p>
