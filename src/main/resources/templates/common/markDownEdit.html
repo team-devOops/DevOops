@@ -16,20 +16,25 @@
     <script>
 
         const markDownDisPlay = (evenet,txt) =>{
+
+
             let startIndex = txt.selectionStart;
             let endIndex = txt.selectionEnd;
 
-            if(evenet.key == 'Tab'){
+            if(evenet.key ==="Tab"){
+
                 txt.value = txt.value.substring(0,startIndex) + "\t" + txt.value.substring(endIndex);
                 console.log(startIndex);
                 txt.selectionEnd = startIndex+1;
+
             }else if(evenet.key === 'Enter'){
-                txt.value = txt.value.substring(0,startIndex) + "   " + txt.value.substring(endIndex);
-                txt.selectionEnd = startIndex+1;
             }
+
+
 
             //let lender = txt.innerText;
             let lender = txt.value;
+            lender.replace("\n\r","<br/>")
             //lender.replace("\u00a0\u00a0\u00a0\u00a0","\t");
             //console.log(lender);
 
@@ -64,12 +69,23 @@
 
         window.onload = () => {
             const txt = document.getElementById("txt");
-            txt.addEventListener("keyup",(evenet) => markDownDisPlay(event,txt),);
-            txt.addEventListener("keydown",(evenet) => {
+            txt.addEventListener("keyup",(evenet) => markDownDisPlay(evenet,txt),);
+            txt.addEventListener("keydown",(evenet,txt) => {
                 /*텝키 막기*/
+
                 if(evenet.key ==="Tab"){
                     evenet.preventDefault();
+
+
+                    txt.value = txt.value.substring(0,startIndex) + "\t" + txt.value.substring(endIndex);
+                    console.log(startIndex);
+                    txt.selectionEnd = startIndex+1;
+
+                }else if(evenet.key === 'Enter'){
+                        txt.value = txt.value.substring(0,startIndex) + "<br/>" + txt.value.substring(endIndex);
+                        txt.selectionEnd = endIndex;
                 }
+
 
 
             },);
@@ -85,17 +101,24 @@
 <body>
 <th:block layout:fragment="content">
 
-        <textarea id="txt" ></textarea>
-        <!--<div id="txt" contenteditable>-->
 
-        <!--</div>-->
 
-        <div id ="test" class="eight wide column" style="background-color: black; color: white;">
-            <p>
-                안녕하세요
-                반갑습니다.
-            </p>
+
+        <div class="row maxGridHeigh">
+            <div class="col-5">
+                <textarea class="form-control maxGridHeigh" id="txt" style="background-color: black; color: white" ></textarea>
+            <!--<div id="txt" contenteditable>-->
+            </div>
+            <!--</div>-->
+
+
+            <div id ="test" class="col-7">
+                반갑
+            </div>
+
         </div>
+
+
 
 
 
