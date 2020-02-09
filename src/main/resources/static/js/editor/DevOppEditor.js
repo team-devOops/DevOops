@@ -2,7 +2,7 @@ const DevOppEditor  = class Editor {
 
     bindDom;
     static _TAB_KEY_CODE = 9;
-    static _SPACE_KEY = '';
+    static _SPACE_KEY = 32;
 
     constructor(name,bindDom){
         this.name = name;
@@ -28,22 +28,7 @@ const DevOppEditor  = class Editor {
             //Tab Key 구
             case Editor._TAB_KEY_CODE :
                 e.preventDefault();
-
-                if (!window.getSelection) return;
-                const sel = window.getSelection();
-                if (!sel.rangeCount) return;
-                const range = sel.getRangeAt(0);
-                range.collapse(true);
-                const span = document.createElement('span');
-                span.appendChild(document.createTextNode('\t'));
-                span.style.whiteSpace = 'pre';
-
-                range.insertNode(span);
-                range.setStartAfter(span);
-                range.collapse(true);
-                sel.removeAllRanges();
-                sel.addRange(range);
-
+                this.spanDivTextAdd('\t');
                 break;
         }
 
@@ -51,32 +36,39 @@ const DevOppEditor  = class Editor {
 
     keypress(e){
         let code = e.which || e.keyCode || e.key;
+        console.log(`keypree : ${code}`  );
         switch (code) {
             //스페이스 구
             case Editor._SPACE_KEY :
-                e.preventDefault();
 
-                if (!window.getSelection) return;
-                const sel = window.getSelection();
-                if (!sel.rangeCount) return;
-                const range = sel.getRangeAt(0);
-                range.collapse(true);
-                const span = document.createElement('span');
-                span.appendChild(document.createTextNode('\s'));
-                span.style.whiteSpace = 'pre';
-
-                range.insertNode(span);
-                range.setStartAfter(span);
-                range.collapse(true);
-                sel.removeAllRanges();
-                sel.addRange(range);
+                this.spanDivTextAdd(' ');
 
                 break;
         }
 
     }
+
     bindDomEventAdd (eventName,action) {
         this.bindDom.addEventListener(eventName,action);
+
+    }
+
+    spanDivTextAdd(data) {
+        if (!window.getSelection) return;
+        const sel = window.getSelection();
+        if (!sel.rangeCount) return;
+        const range = sel.getRangeAt(0);
+        range.collapse(true);
+        const span = document.createElement('span');
+        span.appendChild(document.createTextNode(data));
+        span.style.whiteSpace = 'pre';
+
+        range.insertNode(span);
+        range.setStartAfter(span);
+        range.collapse(true);
+        sel.removeAllRanges();
+        sel.addRange(range);
+
 
     }
 
