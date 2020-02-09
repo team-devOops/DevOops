@@ -6,7 +6,7 @@
 
     <!--<script type="text/javascript" src="/js/main/script-main.js"></script>-->
     <link rel="import" href="/html/common/common">
-    <!--<script type="text/javascript" src="/js/board/board.js"></script>-->
+    <script type="text/javascript" src="/js/editor/DevOppEditor.js"></script>
     <style>
         .maxGridHeigh {
             min-height: 100vh;
@@ -17,77 +17,17 @@
 
         const markDownDisPlay = (evenet,txt) =>{
 
-            console.log("call");
-            if(evenet.key === "Enter"){
-
-            }else if(evenet.key ==="Tab"){
-                event.preventDefault();
-            }
-
             let lender = txt.innerText;
             lender = marked(lender).replace(/\n/g, '  \n')
             document.getElementById("test").innerHTML = lender;
 
         };
 
-        const editkeyDown  = (e,txt) => {
-
-            if (e.key === "Tab") {
-                divTab(e);
-            } else if (e.key === "Enter") {
-
-
-            }
-        }
-
-        const editKeyPress = (e , id) =>{
-
-            console.log(`${e.keyCode} :: ${id} 입니다`);
-        };
-
-
-        const divTab = (e) => {
-            e.preventDefault();
-            console.log(e.key);
-            let code = event.which || event.keyCode;
-            if(code === 9){
-                if (!window.getSelection) return;
-                const sel = window.getSelection();
-                if (!sel.rangeCount) return;
-                const range = sel.getRangeAt(0);
-                range.collapse(true);
-                const span = document.createElement('span');
-                span.appendChild(document.createTextNode('\t'));
-                span.style.whiteSpace = 'pre';
-                range.insertNode(span);
-
-                range.setStartAfter(span);
-                range.collapse(true);
-                sel.removeAllRanges();
-                sel.addRange(range);
-            }
-
-
-
-        };
-
-        const txtAreaTab  = (e,txt) =>{
-           // e.preventDefault();
-
-
-        };
-
-
 
         window.onload = () => {
+            const markdownEdit = new DevOppEditor("markDown",document.getElementById("txt"));
 
-            const txt = document.getElementById("txt");
-
-            txt.addEventListener("keyup",(evenet) => markDownDisPlay(evenet,txt),);
-            txt.addEventListener("keydown",(e) => editkeyDown(e),);
-
-
-
+            markdownEdit.bindDomEventAdd("keyup",(e)=> markDownDisPlay(e,markdownEdit.bindDom));
 
         };
 
