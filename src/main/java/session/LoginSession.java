@@ -16,11 +16,13 @@ public class LoginSession extends AbstractLoginSession implements com.devoops.mg
 	}
 	
 	public void setCustInfo(CustInfo custInfo) {
+		if(AnonymSession.getAnonymSession() != null) {
+			AnonymSession.getAnonymSession().sessionClear();
+		}
+	
 		setSession(BaseComponent.LOGIN_SESSION, custInfo);
 		
 		this.custInfo = custInfo;
-		
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@^_^");
 		
 		if(log.isDebugEnabled()) {
 			log.debug("GENERATE LOGIN SESSION : " + this.custInfo);

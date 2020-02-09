@@ -1,5 +1,5 @@
 package com.devoops.service.email;
 
 public interface EmailAuthSendService {
-	public int sendSimpleMessage(String to);
+	public int sendMessage(String subject, String to, String text);
 }

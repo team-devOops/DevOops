@@ -74,15 +74,40 @@ public abstract class AbstractLoginSession implements LoginSession {
 	 * 도메인 세션 Get
 	 * @author zinzo
 	 */
-	@SuppressWarnings("null")
 	public static Object getSession(String sessionName) {
 		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
 		
-		HttpSession session = null;
+		HttpSession session = request.getSession();
 		
 		if(session.getAttribute(sessionName) != null) {
 			return request.getAttribute(sessionName);
 		}
 		return null;
+	}
+	
+	/**
+	 * 전체 session Invalidate
+	 * @author zinzo
+	 */
+	public void sessionClear() {
+		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
+		
+		HttpSession session = request.getSession();
+		
+		session.invalidate();
+	}
+	
+	/**
+	 * session remove
+	 * @author zinzo
+	 */
+	public static void sessionRemove(String sessionName) {
+		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
+		
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute(sessionName) != null) {
+			session.removeAttribute(sessionName);
+		}
 	}
 }
