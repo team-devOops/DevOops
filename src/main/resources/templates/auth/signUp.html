@@ -28,7 +28,10 @@
 		
 		<div id="emailAuthDiv" style="display: none;">
 			입력하신 이메일로 발송된 메일의 인증번호 입력!
-			 <input type="text" id="authNumber" name="authNumber"/>
+			 <input type="text" id="emailAuthCd" name="emailAuthCd"/>
+			 
+			 <div id="validateDivTwo" style="display: none;"><span id="validateLabelTwo"></span></div>
+			 <input type="button" id="btnChkauthCd" value="입력" onclick="signup.signUpStepTwo(document.forms['frm']);" />
 		</div>
 	</form>
 </th:block>
