@@ -91,7 +91,9 @@ function requstAjax(action, formObj, method, async, callback) {
     	if (xhr.readyState === 4) {
     		if (xhr.status === 200) {
     			if(xhr.response != null) {
-    				callback(JSON.parse(xhr.response));
+    				if(callback != null) {
+    					callback(JSON.parse(xhr.response));
+    				}
     			}
     		}
     	}
@@ -100,6 +102,16 @@ function requstAjax(action, formObj, method, async, callback) {
     xhr.open(method, action, async);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(formData);
+}
+
+function validateAjax(action, formObj, callback) {
+	var result = false;
+	
+	requstAjax(action, formObj, 'post', false, result = function(data) {
+		result = data;
+	});
+	
+	return result;
 }
 
 /**
